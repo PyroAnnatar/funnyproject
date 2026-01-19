@@ -17,7 +17,7 @@
         justify-content: space-between;
         align-items: center;
         border: 4px rgb(182, 12, 12) solid;
-        width: 500px;
+        width: 600px;
         gap: 24px;
         padding: 12px 16px;
         font-size: 48px;
@@ -55,7 +55,7 @@
       }
 
       .controls {
-        width: 500px;
+        width: 600px;
         display: flex;
         justify-content: center;
         gap: 10px;
@@ -104,6 +104,12 @@
       .controls button:nth-child(4) {
         color: #f73c3c;
       }
+
+      .funny {
+        width: 600px;
+        text-align: center;
+        color: #fff;
+      }
     </style>
   </head>
 
@@ -132,7 +138,11 @@
       <button onclick="incLoss()">+L</button>
       <button onclick="decLoss()">-L</button>
     </div>
+    <div class="funny">
+      <p>Add this to the URL to watch a player:</p>
 
+      <pre><code>?player=playerNameHere</code></pre>
+    </div>
     <script src="overlay.js"></script>
   </body>
 </html>
