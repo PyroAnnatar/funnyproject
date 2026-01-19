@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="data:," />
+    <meta charset="UTF-8" />
+    <title>Win/Loss Overlay</title>
+
+    <style>
+      body {
+        background: #000;
+        margin: 0;
+        font-family: system-ui, sans-serif;
+      }
+
+      .overlay {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 4px rgb(182, 12, 12) solid;
+        width: 500px;
+        gap: 24px;
+        padding: 12px 16px;
+        font-size: 48px;
+        font-weight: 700;
+        color: #ffffff;
+        background: rgba(109, 107, 107, 0.349);
+      }
+
+      .stat.streak {
+        justify-content: flex-end;
+      }
+
+      .stat.streak .value {
+        min-width: 11ch;
+        text-align: right;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .value {
+        font-variant-numeric: tabular-nums;
+        min-width: 2ch;
+        text-align: right;
+      }
+
+      .wins {
+        color: #27f071;
+      }
+
+      .losses {
+        color: #f73c3c;
+      }
+
+      .streak {
+        color: #5698e9;
+      }
+
+      .controls {
+        width: 500px;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 10px;
+        padding: 6px;
+        opacity: 0.9;
+      }
+
+      .controls button {
+        font-size: 20px;
+        font-weight: 600;
+        padding: 6px 14px;
+        width: 80px;
+
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.534);
+
+        background: rgb(54, 54, 54);
+        color: #fff;
+
+        cursor: pointer;
+
+        backdrop-filter: blur(6px);
+
+        transition:
+          background 0.1s ease,
+          border-color 0.1s ease,
+          transform 0.05s ease;
+      }
+
+      .controls button:hover {
+        background: rgba(0, 0, 0, 0.815);
+        border-color: rgba(255, 255, 255, 0.45);
+      }
+
+      .controls button:active {
+        transform: translateY(1px);
+      }
+
+      .controls button:nth-child(1),
+      .controls button:nth-child(2) {
+        color: #27f071;
+      }
+
+      .controls button:nth-child(3),
+      .controls button:nth-child(4) {
+        color: #f73c3c;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="overlay">
+      <div class="stat wins">
+        <span class="label">W</span>
+        <span id="wins" class="value">0</span>
+      </div>
+
+      <div class="stat losses">
+        <span class="label">L</span>
+        <span id="losses" class="value">0</span>
+      </div>
+
+      <div class="stat streak">
+        <span class="label"></span>
+        <span id="streak" class="value"></span>
+      </div>
+    </div>
+
+    <!-- in case of emergency -->
+    <div class="controls">
+      <button onclick="incWin()">+W</button>
+      <button onclick="decWin()">-W</button>
+      <button onclick="incLoss()">+L</button>
+      <button onclick="decLoss()">-L</button>
+    </div>
+
+    <script src="overlay.js"></script>
+  </body>
+</html>
