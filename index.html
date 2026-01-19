@@ -13,32 +13,33 @@
       }
 
       .overlay {
-        display: flex;
-        justify-content: space-between;
+        display: grid;
+        grid-template-columns: 5ch 5ch 1fr;
+        justify-items: center;
         align-items: center;
-        border: 4px rgb(182, 12, 12) solid;
-        width: 600px;
-        gap: 24px;
-        padding: 12px 16px;
-        font-size: 48px;
+        border: 1px rgb(78, 78, 78) solid;
+        border-top: 0px;
+        width: 300px;
+        padding: 8px 12px;
+        font-size: 24px;
         font-weight: 700;
         color: #ffffff;
-        background: rgba(109, 107, 107, 0.349);
+        background: radial-gradient(#1e2016, #000);
       }
 
       .stat.streak {
-        justify-content: flex-end;
+        justify-self: center;
       }
 
       .stat.streak .value {
-        min-width: 11ch;
+        min-width: 9ch;
         text-align: right;
         font-variant-numeric: tabular-nums;
       }
 
       .value {
         font-variant-numeric: tabular-nums;
-        min-width: 2ch;
+        min-width: 100%;
         text-align: right;
       }
 
@@ -55,7 +56,7 @@
       }
 
       .controls {
-        width: 600px;
+        width: 300px;
         display: flex;
         justify-content: center;
         gap: 10px;
@@ -71,9 +72,9 @@
         width: 80px;
 
         border-radius: 999px;
-        border: 1px solid rgba(255, 255, 255, 0.534);
+        border: 1px rgb(78, 78, 78) solid;
 
-        background: rgb(54, 54, 54);
+        background: radial-gradient(#1e2016, #000);
         color: #fff;
 
         cursor: pointer;
@@ -106,7 +107,7 @@
       }
 
       .funny {
-        width: 600px;
+        width: 300px;
         text-align: center;
         color: #fff;
       }
