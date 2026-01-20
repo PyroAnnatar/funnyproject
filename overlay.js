@@ -6,9 +6,12 @@ const params = new URLSearchParams(window.location.search);
 
 const PLAYER_NAME = params.get("player") || "Graceful"; // the memeur himself is the default (definitely not to make fun Kappa)
 const POLL_MS = Number(params.get("poll")) || 60_000; // abuses the API every minute
+const HAS_BOTS = params.get("hasBots") === "true"; // show pve games or not, also good for testing I guess
 
 const API_URL =
-  "https://api.bar-rts.com/replays?page=1&limit=24&hasBots=false&endedNormally=true&players=" +
+  "https://api.bar-rts.com/replays?page=1&limit=24&hasBots=" +
+  HAS_BOTS +
+  "&endedNormally=true&players=" +
   encodeURIComponent(PLAYER_NAME);
 
 // Initial State
