@@ -5,7 +5,7 @@ console.log("Overlay loaded");
 const params = new URLSearchParams(window.location.search);
 
 const PLAYER_NAME = params.get("player") || "Graceful"; // the memeur himself is the default (definitely not to make fun Kappa)
-const POLL_MS = Number(params.get("poll")) || 60_000;
+const POLL_MS = Number(params.get("poll")) || 60_000; // abuses the API every minute
 
 const API_URL =
   "https://api.bar-rts.com/replays?page=1&limit=24&hasBots=false&endedNormally=true&players=" +
@@ -104,15 +104,19 @@ async function updateStats() {
     }
 
     if (!playerTeam) continue;
+    const mapName =
+      match.Map && match.Map.scriptName
+        ? match.Map.scriptName
+        : "Unknown map or fail";
 
     if (playerTeam.winningTeam) {
       wins++;
       streak = streak >= 0 ? streak + 1 : 1;
-      console.log("WIN", match.map.scriptName, match.id);
+      console.log("WIN", mapName, match.id);
     } else {
       losses++;
       streak = streak <= 0 ? streak - 1 : -1;
-      console.log("LOSS", match.map.scriptName, match.id);
+      console.log("LOSS", mapName, match.id);
     }
   }
 

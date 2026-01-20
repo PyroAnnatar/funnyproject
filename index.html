@@ -7,7 +7,12 @@
 
     <style>
       body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         background: #000;
+        padding-top: 1vh;
+        padding-left: 1vh;
         margin: 0;
         font-family: system-ui, sans-serif;
       }
@@ -140,9 +145,22 @@
       <button onclick="decLoss()">-L</button>
     </div>
     <div class="funny">
-      <p>Add this to the URL to watch a player:</p>
+      <p>Add this to the URL to watch a specific player:</p>
 
       <pre><code>?player=playerNameHere</code></pre>
+
+      <p>Optional: control how often the overlay updates (in milliseconds):</p>
+
+      <pre><code>?poll=60000</code></pre>
+
+      <p>You can chain parameters together like this:</p>
+
+      <pre><code>?player=playerNameHere&poll=30000</code></pre>
+
+      <p>
+        Please don’t share or link the GitHub repo publicly — this overlay is
+        intended to be used via the hosted page only. (It's just trash anyway)
+      </p>
     </div>
     <script src="overlay.js"></script>
   </body>
